@@ -1,4 +1,7 @@
 #include <iostream>
+#include <conio.h>
+#include <chrono>
+#include <thread>
  using namespace std;
 
 
@@ -59,10 +62,31 @@ void draw(){
 
 void  input(){
 
+if (_kbhit()) {
+        char key = _getch(); 
 
+        switch (key) {
+            case 'a':
+                if (dir != RIGHT) dir = LEFT;
+                break;
+            case 'd':
+                if (dir != LEFT) dir = RIGHT;
+                break;
+            case 'w':
+                if (dir != DOWN) dir = UP;
+                break;
+            case 's':
+                if (dir != UP) dir = DOWN;
+                break;
+        }
+    }
 }
 
+
+
+
 void logic(){
+    this_thread::sleep_for(chrono::milliseconds(1000)); 
 
 
 }
@@ -74,14 +98,14 @@ void logic(){
 int main(){
 
     setup();
-    draw();
-    /*while (!gameOver)
+   
+   while (!gameOver)
     {
     
     draw();
     input();
     logic();
-    }*/
+    }
     
 
 
