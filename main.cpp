@@ -86,7 +86,27 @@ if (_kbhit()) {
 
 
 void logic(){
-    this_thread::sleep_for(chrono::milliseconds(1000)); 
+    if (dir == LEFT)
+    x--;
+if (dir == RIGHT)
+    x++;
+if (dir == UP)
+    y--;
+if (dir == DOWN)
+    y++;
+
+   if (x ==fruitX && y==fruitY)
+   score++;
+   
+   if (x<0||x>=width||y<0||y>= height)
+   gameOver = true;
+   
+   
+
+    
+   
+    
+    
 
 
 }
