@@ -22,6 +22,38 @@ Direction dir;
 
 void draw(){
 
+     system("cls"); // screen cleaning
+
+    // Upper limit
+    for (int i = 0; i < width + 2; i++)
+        cout << "#";
+    cout << endl;
+
+    // Field
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (j == 0) cout << "#"; // left border
+
+            if (i == y && j == x)
+                cout << "O"; // snake
+            else if (i == fruitY && j == fruitX)
+                cout << "F"; // food
+            else
+                cout << " "; // empty space
+
+            if (j == width - 1) cout << "#"; // right border
+        }
+        cout << endl;
+    }
+
+    // Lower limit
+    for (int i = 0; i < width + 2; i++)
+        cout << "#";
+    cout << endl;
+
+  
+    cout << "Score: " << score << endl;
+
 
 }
 
@@ -42,13 +74,14 @@ void logic(){
 int main(){
 
     setup();
-    while (!gameOver)
+    draw();
+    /*while (!gameOver)
     {
     
     draw();
     input();
     logic();
-    }
+    }*/
     
 
 
